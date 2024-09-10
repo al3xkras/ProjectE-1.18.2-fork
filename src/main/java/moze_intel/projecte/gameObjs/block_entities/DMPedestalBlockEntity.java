@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class DMPedestalBlockEntity extends CapabilityEmcBlockEntity implements IDMPedestal {
 
-	private static final int RANGE = 3;
+	private static final int RANGE = 2;
 	private final StackHandler inventory = new StackHandler(1) {
 		@Override
 		public void onContentsChanged(int slot) {

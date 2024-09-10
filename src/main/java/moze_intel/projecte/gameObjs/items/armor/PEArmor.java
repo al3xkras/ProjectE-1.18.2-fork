@@ -8,6 +8,7 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class PEArmor extends ArmorItem {
@@ -18,16 +19,33 @@ public abstract class PEArmor extends ArmorItem {
 
 	@Override
 	public boolean isEnchantable(@NotNull ItemStack stack) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return false;
+		return true;
+	}
+
+	@Override
+	public int getEnchantmentValue() {
+		return 50;
 	}
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		// Check if the enchantment category is valid for the armor piece's equipment slot
+		if (enchantment.category == EnchantmentCategory.BREAKABLE || enchantment.category==EnchantmentCategory.VANISHABLE)
+			return true;
+		if (this.getSlot() == EquipmentSlot.HEAD) {
+			return enchantment.category == EnchantmentCategory.ARMOR_HEAD || enchantment.category == EnchantmentCategory.ARMOR;
+		} else if (this.getSlot() == EquipmentSlot.CHEST) {
+			return enchantment.category == EnchantmentCategory.ARMOR_CHEST || enchantment.category == EnchantmentCategory.ARMOR;
+		} else if (this.getSlot() == EquipmentSlot.LEGS) {
+			return enchantment.category == EnchantmentCategory.ARMOR_LEGS || enchantment.category == EnchantmentCategory.ARMOR;
+		} else if (this.getSlot() == EquipmentSlot.FEET) {
+			return enchantment.category == EnchantmentCategory.ARMOR_FEET || enchantment.category == EnchantmentCategory.ARMOR;
+		}
 		return false;
 	}
 

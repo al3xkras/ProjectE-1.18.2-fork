@@ -12,6 +12,7 @@ import moze_intel.projecte.utils.TransmutationEMCFormatter;
 import moze_intel.projecte.utils.text.PELang;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -42,6 +43,7 @@ public class GUITransmutation extends PEContainerScreen<TransmutationContainer> 
 
 		this.textBoxFilter = new EditBox(this.font, leftPos + 88, topPos + 8, 45, 10, TextComponent.EMPTY);
 		this.textBoxFilter.setValue(inv.filter);
+		this.textBoxFilter.changeFocus(true);
 
 		addRenderableWidget(new Button(leftPos + 125, topPos + 100, 14, 14, new TextComponent("<"), b -> {
 			if (inv.searchpage != 0) {

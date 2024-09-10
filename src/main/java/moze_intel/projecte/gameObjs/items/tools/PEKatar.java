@@ -33,6 +33,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
@@ -55,6 +57,23 @@ public class PEKatar extends PETool implements IItemMode, IExtraFunction {
 		modeDesc = new ILangEntry[]{PELang.MODE_KATAR_1, PELang.MODE_KATAR_2};
 		addItemCapability(ModeChangerItemCapabilityWrapper::new);
 		addItemCapability(ExtraFunctionItemCapabilityWrapper::new);
+	}
+
+	@Override
+	public boolean isEnchantable(@NotNull ItemStack stack) {
+		return true;
+	}
+
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+		return true;
+	}
+
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		return enchantment.category == EnchantmentCategory.WEAPON ||
+				enchantment.category == EnchantmentCategory.VANISHABLE ||
+				enchantment.category == EnchantmentCategory.BREAKABLE;
 	}
 
 	@Override

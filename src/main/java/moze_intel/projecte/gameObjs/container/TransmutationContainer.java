@@ -152,7 +152,8 @@ public class TransmutationContainer extends PEHandContainer {
 					ItemHandlerHelper.insertItemStacked(inv, stack, false);
 				}
 			}
-		} else if (slotIndex > 26) {
+			// Process slots excluding the Hot bar
+		} else if (slotIndex > 26 & slotIndex <= 53) {
 			ItemStack slotStack = currentSlot.getItem();
 			ItemStack stackToInsert = slotStack;
 			if (stackToInsert.getCapability(PECapabilities.EMC_HOLDER_ITEM_CAPABILITY).isPresent()) {

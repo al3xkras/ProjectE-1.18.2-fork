@@ -4,6 +4,11 @@ Repository for ProjectE, a complete rewrite of EE2 (Equivalent Exchange 2) for m
 
 Discover powerful alchemical tools, items, and devices. Break down unwanted items into EMC (Energy-Matter Covalence) and use that EMC to create new items.
 
+# What was modified in the fork compared to the original ProjectE (mc 1.18.2):
+
+- Dark matter pedestal active zone radius was set to 2 blocks instead of 4. Reasons: radius of 2 blocks is suitable for most use cases; better flexibility of mechanisms; reduce lag
+- Dark/Red matter armor and tools and special armor / tools were made enchantable.
+- Transmutation GUI restricts selling hotbar items for EMC. In many situations, valuable items that have a EMC value may be stored in the hotbar inventory and sold by accident.
 
 # I found a bug
 Bugs can be reported at: https://github.com/sinkillerj/ProjectE/issues

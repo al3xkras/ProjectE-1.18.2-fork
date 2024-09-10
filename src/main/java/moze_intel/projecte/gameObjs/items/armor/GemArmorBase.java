@@ -74,7 +74,7 @@ public abstract class GemArmorBase extends PEArmor {
 
 		@Override
 		public int getEnchantmentValue() {
-			return 0;
+			return 50;
 		}
 
 		@NotNull

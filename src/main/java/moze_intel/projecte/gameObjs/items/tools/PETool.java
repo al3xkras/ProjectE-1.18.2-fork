@@ -41,12 +41,12 @@ public abstract class PETool extends DiggerItem implements IItemCharge, IBarHelp
 
 	@Override
 	public boolean isEnchantable(@NotNull ItemStack stack) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return false;
+		return true;
 	}
 
 	@Override

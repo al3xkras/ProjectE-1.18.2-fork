@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShearsItem;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.TierSortingRegistry;
@@ -40,17 +41,18 @@ public class PEShears extends ShearsItem implements IItemCharge, IBarHelper {
 
 	@Override
 	public boolean isEnchantable(@NotNull ItemStack stack) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return false;
+		return enchantment.category == EnchantmentCategory.BREAKABLE ||
+				enchantment.category == EnchantmentCategory.VANISHABLE;
 	}
 
 	@Override

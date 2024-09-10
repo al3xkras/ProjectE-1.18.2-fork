@@ -28,6 +28,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GrassBlock;
@@ -47,6 +49,23 @@ public class PEMorningStar extends PETool implements IItemMode {
 		super(matterType, PETags.Blocks.MINEABLE_WITH_PE_MORNING_STAR, 16, -3, numCharges, props);
 		modeDesc = new ILangEntry[]{PELang.MODE_MORNING_STAR_1, PELang.MODE_MORNING_STAR_2, PELang.MODE_MORNING_STAR_3, PELang.MODE_MORNING_STAR_4};
 		addItemCapability(ModeChangerItemCapabilityWrapper::new);
+	}
+
+	@Override
+	public boolean isEnchantable(@NotNull ItemStack stack) {
+		return true;
+	}
+
+	@Override
+	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+		return true;
+	}
+
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		return enchantment.category == EnchantmentCategory.DIGGER ||
+				enchantment.category == EnchantmentCategory.VANISHABLE ||
+				enchantment.category == EnchantmentCategory.BREAKABLE;
 	}
 
 	@Override

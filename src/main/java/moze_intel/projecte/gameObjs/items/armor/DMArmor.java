@@ -65,7 +65,7 @@ public class DMArmor extends PEArmor {
 
 		@Override
 		public int getEnchantmentValue() {
-			return 0;
+			return 50;
 		}
 
 		@NotNull

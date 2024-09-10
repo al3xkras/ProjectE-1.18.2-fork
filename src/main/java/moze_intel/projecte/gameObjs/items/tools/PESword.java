@@ -28,6 +28,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentCategory;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.TierSortingRegistry;
@@ -55,17 +56,20 @@ public class PESword extends SwordItem implements IExtraFunction, IItemCharge, I
 
 	@Override
 	public boolean isEnchantable(@NotNull ItemStack stack) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-		return false;
+		return true;
 	}
+
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-		return false;
+		return enchantment.category == EnchantmentCategory.WEAPON ||
+				enchantment.category == EnchantmentCategory.VANISHABLE ||
+				enchantment.category == EnchantmentCategory.BREAKABLE;
 	}
 
 	@Override
